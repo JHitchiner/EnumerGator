@@ -1,0 +1,10 @@
+Fill out functionality of nmap, smbmap, gobuster arguments
+Add dns recon
+Add an auto flag
+Auto flag should do full namp scan, then more scans depending on ports
+port 80, 443 - gobuster on these
+port 21 - check if access control
+port 139, 445 - smbmap
+port 53 - dnsrecon
+etc. add for as many ports as possible
+output all to a single folder but with different files for each scan
