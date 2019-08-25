@@ -19,9 +19,9 @@ def main():
                         action="store_true")
     parser.add_argument("-nF", "--nmapFull", help="Nmap scan all ports",
                         action="store_true")
-    parser.add_argument("-g", "--gobuster", help="Gobuster scan",
+    parser.add_argument("-d", "--dirbrute", help="URI Directory brute-force",
                         action="store_true")
-    parser.add_argument("-s", "--smbmap", help="SMBMap scan",
+    parser.add_argument("-s", "--smbscan", help="SMB dir scan",
                         action="store_true")
 
     parser.add_argument("-t", "--target", help="Host target IP", required=True)
@@ -67,11 +67,14 @@ def main():
         nmapScan("Full", targetIP, path)
 
     # Check rest of flags
-    if(args.gobuster == True):
-        print("gobuster")
+    if(args.dirbrute == True):
+        print("Running Gobuster in URI Brute-forcing mode")
+        command = "gobuster dir -u " + targetIP + " -w assets/common.txt -q -o " + path
+        r = os.system(command)
+        print("Finished brute-forcing.")
 
-    if(args.smbmap == True):
-        print("smbmap")
+    if(args.smbscan == True):
+        nmapScan("SMB", targetIP, path)
 
 if __name__ == "__main__":
     main()

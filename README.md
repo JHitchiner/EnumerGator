@@ -2,7 +2,7 @@
 Little side project automating some basic pen testing enumeration :)
 
 ## Dependancies
-nmap, python, gobuster, smbmap
+nmap, python, gobuster
 
 Basically just run this on kali linux and it should be sweet
 

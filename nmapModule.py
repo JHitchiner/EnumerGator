@@ -31,6 +31,13 @@ def nmapScan(scanType, targetIP, path):
             print("Finished scan.")
             return
 
+    elif(scanType == "SMB"):
+        print("Running SMB scan...")
+        command = "nmap --script smb-enum-shares -p 139,445 " + targetIP + " -oN " + path + "/smbscan.txt >/dev/null"
+        r = os.system(command)
+        print("Finished scan.")
+        return
+
     else:
         print("Error: Could not identify scan type.")
         return
